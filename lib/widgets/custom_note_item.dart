@@ -25,7 +25,7 @@ class NoteItem extends StatelessWidget {
           bottom: 24,
         ),
         decoration: BoxDecoration(
-          color: Color(note.color),
+          color: Color.fromARGB(237, 27, 133, 233),
           borderRadius: BorderRadius.circular(16),
         ),
         child: Column(
