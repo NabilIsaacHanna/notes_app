@@ -36,7 +36,7 @@ class _AddNoteBottomSheetState extends State<AddNoteBottomSheet> {
                   left: 16.0,
                   right: 16,
                   bottom: MediaQuery.of(context).viewInsets.bottom),
-              child: SingleChildScrollView(
+              child: const SingleChildScrollView(
                 child: AddNoteForm(),
               ),
             ),

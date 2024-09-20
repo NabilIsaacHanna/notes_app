@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app/constants.dart';
+import 'package:notes_app/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:notes_app/cubits/add_note_cubit/notes_cubit/notes_cubit_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
+import 'package:notes_app/widgets/colors_list_view.dart';
 import 'package:notes_app/widgets/custom_app_bar.dart';
 import 'package:notes_app/widgets/custom_text_field.dart';
 
@@ -35,7 +38,7 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
             title: 'Edit',
             icon: Icons.check,
           ),
-          SizedBox(
+          const SizedBox(
             height: 50,
           ),
           CustomTextField(
@@ -53,8 +56,55 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
             hint: widget.note.subTitle,
             maxLines: 5,
           ),
+          const SizedBox(
+            height: 24,
+          ),
+          EditNoteColorsList(
+            note: widget.note,
+          ),
         ]),
       ),
     );
+  }
+}
+
+class EditNoteColorsList extends StatefulWidget {
+  const EditNoteColorsList({super.key, required this.note});
+  final NoteModel note;
+  @override
+  State<EditNoteColorsList> createState() => _EditNoteColorsListState();
+}
+
+class _EditNoteColorsListState extends State<EditNoteColorsList> {
+  late int currentIndex;
+  @override
+  void initState() {
+    currentIndex = colors.indexOf(Color(widget.note.color));
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 76,
+      child: ListView.builder(
+        itemCount: colors.length,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) {
+          return GestureDetector(
+            onTap: () {
+              currentIndex = index;
+              widget.note.color = colors[index].value;
+              setState(() {});
+            },
+            child: ColorItem(
+              color: colors[index],
+              isActive: currentIndex == index,
+            ),
+          );
+        },
+      ),
+    );
+    ;
   }
 }
