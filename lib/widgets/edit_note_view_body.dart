@@ -22,9 +22,9 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 24.0),
+        padding: const EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(children: [
-          SizedBox(
+          const SizedBox(
             height: 50,
           ),
           CustomAppBar(
@@ -105,6 +105,5 @@ class _EditNoteColorsListState extends State<EditNoteColorsList> {
         },
       ),
     );
-    ;
   }
 }

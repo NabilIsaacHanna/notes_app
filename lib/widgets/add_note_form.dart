@@ -27,7 +27,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
       autovalidateMode: autovalidateMode,
       child: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 32,
           ),
           CustomTextField(
@@ -36,7 +36,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
             },
             hint: 'Title',
           ),
-          SizedBox(
+          const SizedBox(
             height: 32,
           ),
           CustomTextField(
@@ -49,7 +49,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
           const SizedBox(
             height: 32,
           ),
-          ColorListView(),
+          const ColorListView(),
           const SizedBox(
             height: 32,
           ),
